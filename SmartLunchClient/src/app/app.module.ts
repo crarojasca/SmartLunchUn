@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,6 +19,9 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 
 import 'hammerjs';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { WallComponent } from './wall/wall.component';
+import { TurnComponent } from './turn/turn.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -26,8 +30,19 @@ export const appRoutes: Routes = [
   { path: 'home',
     component: HomeComponent,
     // canActivate: [Angular2TokenService]
-  },
+    children: [
+      {
+        path: '',
+        component: WallComponent,
+      },
+      {
+        path: 'turn',
+        component: TurnComponent,
+      }
+    ]
+  }
 ]
+
 
 @NgModule({
   declarations: [
@@ -36,9 +51,13 @@ export const appRoutes: Routes = [
     SignComponent,
     BannerComponent,
     LandingComponent,
-    HomeComponent
+    HomeComponent,
+    RestaurantComponent,
+    WallComponent,
+    TurnComponent
   ],
   imports: [
+    MatButtonModule,
     MatIconModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,

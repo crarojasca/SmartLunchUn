@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  user = "Cristian Rojas";
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  signOut(){
+    // this.Services.signOut( ).subscribe(
+    //     res => {
+    //       if( res.status == 200 ){
+              this.router.navigate( [""] );
+    //       }
+    //     }
+    // );
   }
 
 }
