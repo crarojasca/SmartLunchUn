@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { Angular2TokenService } from 'angular2-token';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,13 +25,15 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { WallComponent } from './wall/wall.component';
 import { TurnComponent } from './turn/turn.component';
 
+import { AuthenticationService } from './guards/authentication.service';
+
 export const appRoutes: Routes = [
-  { path: '',
+  { path: 'login',
     component: LandingComponent,
   },
-  { path: 'home',
+  { path: '',
     component: HomeComponent,
-    // canActivate: [Angular2TokenService]
+    canActivate: [AuthenticationService],
     children: [
       {
         path: '',
@@ -67,11 +71,12 @@ export const appRoutes: Routes = [
     MatInputModule,
     MatTabsModule,
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot( appRoutes ),
   ],
   exports: [
   ],
-  providers: [],
+  providers: [Angular2TokenService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
