@@ -1,0 +1,18 @@
+<div id="welcome">
+  <img src="/assets/sandwich.png" alt="">
+  <h1 id="welcome-message">Bienvenido a <span class="brand">SmartLunchUN</span></h1>
+  <h4>Selecciona la cafetería</h4>
+  <mat-form-field>
+    <mat-select placeholder="Cafetería" [(value)]="selected">
+      <mat-option value="central">Central</mat-option>
+      <mat-option value="biologia">Biología</mat-option>
+      <mat-option value="matematicas">Matemáticas</mat-option>
+      <mat-option value="odontologia">Odontología</mat-option>
+      <mat-option value="agronomia">Agronomía</mat-option>
+      <mat-option value="economicas">Ciencias Económicas</mat-option>
+      <mat-option value="humanas">Ciencias Humanas</mat-option>
+      <mat-option value="flecha">La Flecha</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" style="margin-left: 10px;" [disabled]="!selected" (click)="goToRestaurant()">Entrar</button>
+</div>

@@ -1,0 +1,9 @@
+#banner-toolbar{
+    width: 100%;
+    top: 0;
+    font-family: 'Lobster', cursive;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
