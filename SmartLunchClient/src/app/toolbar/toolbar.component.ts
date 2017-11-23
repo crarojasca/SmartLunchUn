@@ -9,9 +9,11 @@ import { SmartLunchApiService } from '../services/smart-lunch-api.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  user = "Cristian Rojas";
+  public user;
 
-  constructor(private router: Router, private Services: SmartLunchApiService) { }
+  constructor(private router: Router, private Services: SmartLunchApiService) {
+      this.user = localStorage.getItem('uid');
+  }
 
   ngOnInit() {
   }
