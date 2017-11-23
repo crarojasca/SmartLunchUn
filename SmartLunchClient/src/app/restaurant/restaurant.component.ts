@@ -14,8 +14,13 @@ export class RestaurantComponent implements OnInit {
   ngOnInit() {
   }
 
-  turn(){
-    this.router.navigate( ["/home/turn"] );
+  turn() {
+    localStorage.setItem('restaurant', this.restaurant.name);
+    localStorage.setItem('turn', this.restaurant.queue);
+    this.router.navigate( ['/turn']);
+  }
+  getImg() {
+    return '/assets/' + this.restaurant.img + '.jpg';
   }
 
 }

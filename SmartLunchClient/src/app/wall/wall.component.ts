@@ -9,44 +9,52 @@ export class WallComponent implements OnInit {
 
   protected restaurants = [
     {
-      "name": "Concha",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Biología",
+      "queue": "31",
+      "time": "1:50",
+      "img": "biologia"
     },
     {
-      "name": "Hemeroteca",
+      "name": "Central",
       "queue": "40",
       "time": "1:30",
+      "img": "central"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Matemáticas",
+      "queue": "45",
+      "time": "1:45",
+      "img": "mate"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Ciencias Humanas",
+      "queue": "25",
+      "time": "1:15",
+      "img": "humanas"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Ciencias Económicas",
+      "queue": "20",
+      "time": "1:20",
+      "img": "economia"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Agronomía",
+      "queue": "33",
+      "time": "1:36",
+      "img": "agronomia"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "La Flecha",
+      "queue": "15",
+      "time": "1:50",
+      "img": "flecha"
     },
     {
-      "name": "Hemeroteca",
-      "queue": "40",
-      "time": "1:30",
+      "name": "Odontología",
+      "queue": "18",
+      "time": "2:00",
+      "img": "odonto"
     }
 
   ];

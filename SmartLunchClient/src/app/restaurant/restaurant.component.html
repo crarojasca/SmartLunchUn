@@ -1,11 +1,18 @@
-<mat-card class="card" (click) = "turn()">
+<mat-card class="card" (click)="turn()">
   <mat-card-header>
-    <mat-card-title>{{restaurant.name}}</mat-card-title>
-    <mat-card-subtitle>Algo aqui</mat-card-subtitle>
+    <mat-card-title class="card-title"><strong>{{restaurant.name}}</strong></mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img height="250px" mat-card-image [src]="getImg()" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    Queue = {{restaurant.queue}}
-    Time = {{restaurant.time}}
+    <p>
+      <mat-icon>face</mat-icon>
+      {{restaurant.queue}} personas en cola
+      <br>
+      <mat-icon>schedule</mat-icon>
+      {{restaurant.time}} minutos de atencion
+    </p>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="turn()">Pedir Turno</button>
+  </mat-card-actions>
 </mat-card>

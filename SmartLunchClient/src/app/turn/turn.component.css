@@ -5,10 +5,11 @@
   margin: auto;
 }
 
-.card{
-  width: 400px;
+.info{
+  width: 100%;
   margin-top: 50px;
   margin: auto;
+  text-align: center;
 }
 
 .text{

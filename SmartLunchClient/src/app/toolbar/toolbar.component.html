@@ -1,12 +1,9 @@
-<mat-toolbar>
-  <span>
-    {{user}}
-  </span>
-
-  <span id="SignOutButton">
-    <button mat-raised-button color="primary" (click)="signOut()" >
-      <mat-icon>exit_to_app_black</mat-icon>
-    </button>
-  </span>
-
+<mat-toolbar id="banner-toolbar" color="primary">
+  <span class="brand">SmartLunchUn</span>
+  <span class="spacer"></span>
+  <span class="user">{{user}}</span>
+  <button mat-button (click)="signOut()" >
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
 </mat-toolbar>
+  

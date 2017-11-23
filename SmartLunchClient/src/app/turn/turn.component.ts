@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TurnComponent implements OnInit {
 
-  restaurant = "Hemeroteca";
+
+  restaurant = localStorage.getItem('restaurant');
+  turn = parseInt(localStorage.getItem('turn'), 10) + 1;
 
   constructor() { }
 
