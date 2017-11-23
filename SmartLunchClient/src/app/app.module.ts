@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,10 @@ import { WallComponent } from './wall/wall.component';
 import { TurnComponent } from './turn/turn.component';
 
 import { AuthenticationService } from './guards/authentication.service';
+import { HasTurnGuard } from './guards/has-turn.guard';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+import { SmartLunchApiService } from './services/smart-lunch-api.service';
 
 export const appRoutes: Routes = [
   { path: 'login',
@@ -39,11 +43,12 @@ export const appRoutes: Routes = [
     children: [
       {
         path: '',
-        component: WallComponent,
+        component: TurnComponent,
+        canActivate: [AuthenticationService, HasTurnGuard],
       },
       {
-        path: 'turn',
-        component: TurnComponent,
+        path: 'home',
+        component: WallComponent,
       }
     ]
   }
@@ -74,13 +79,16 @@ export const appRoutes: Routes = [
     MatToolbarModule,
     MatInputModule,
     MatTabsModule,
+    MatSnackBarModule,
+    BrowserModule,
+    HttpModule,
     MatDialogModule,
     RouterModule.forRoot( appRoutes ),
   ],
   exports: [
   ],
+  providers: [SmartLunchApiService, Angular2TokenService, AuthenticationService, HasTurnGuard],
   entryComponents: [ SignComponent ],
-  providers: [Angular2TokenService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

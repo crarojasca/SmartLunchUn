@@ -2,12 +2,16 @@
     <mat-icon style="font-size: 256px; width: 100%;" color="accent">done_all</mat-icon>
     <h1>Tienes el turno</h1>
     <div class="turn">
-      {{turn}}
+      {{turn.number}}
     </div>
     <h2>en la cafetería</h2>
     <div class="turn">
-      {{restaurant}}
+      {{turn.restaurant}}
     </div>
+    <div class="text">
+      {{turn.user.email}}
+    </div>
+  </mat-card>
 </div>
 
 

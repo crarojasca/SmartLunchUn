@@ -53,23 +53,35 @@ export class SmartLunchApiService {
     });
 
   }
-  //
+
+
   getHeaders( ) {
       return this._tokenService.currentAuthHeaders;
   }
-  //
-  // getAllLotteries( ) {
-  // 	return this.http.get( this.URLPath ).map( ( res: Response ) => res.json( ) );
-  // }
-  //
-  // getLastLottery( ) {
-  // 	return this.http.get( this.URLPath + '/last' ).map( ( res: Response ) => res.json( ).data );
-  // }
-  //
-  // getAllUsers() {
-  //   return this.http.get( this.URLPath + '/users' ).map( ( res: Response ) => res.json());
-  // }
-  //
+
+
+  postTurn( turn: { restaurant: string } ) {
+    const headers = new Headers( this.getHeaders() );
+    headers.set('Content-Type', 'application/json; charset=utf-8' );
+    headers.set('Accept',  'application/json' );
+    const options = new RequestOptions( { headers } );
+
+    return this.http.post( this.URLPath + '/turns', JSON.stringify(turn), options )
+          .map( ( res: Response ) => res.json( ) );
+  }
+
+  getTurn() {
+    const headers = new Headers( this.getHeaders() );
+    headers.set('Content-Type', 'application/json; charset=utf-8' );
+    headers.set('Accept',  'application/json' );
+    const options = new RequestOptions( { headers } );
+    return this.http.get( this.URLPath + '/turns', options ).map( ( res: Response ) => res.json());
+  }
+
+  getRestaurants() {
+    return this.http.get( this.URLPath + '/restaurants' ).map( ( res: Response ) => res.json());
+  }
+
   signIn( signInData: { email: string, password: string }  ): Observable<Response> {
     return this._tokenService.signIn( signInData ).map(
         res => {
@@ -78,8 +90,7 @@ export class SmartLunchApiService {
         }
     );
   }
-  //
-  //
+
   signUp( signUpData: { username: string, email: string, password: string, passwordConfirmation: string } ): Observable<Response> {
     return this._tokenService.registerAccount( signUpData ).map(
         res => {
@@ -91,16 +102,14 @@ export class SmartLunchApiService {
   }
 
   signOut( ): Observable<Response> {
-
     return this._tokenService.signOut().map(
       res =>      {return res},
       error =>    {return error}
     );
 
   }
-  //
-  //
-  //
+
+
   // newBet ( betData: { num: string } ){
   //   const headers = new Headers( this.getHeaders() );
   //   headers.set('Content-Type', 'application/json; charset=utf-8' );

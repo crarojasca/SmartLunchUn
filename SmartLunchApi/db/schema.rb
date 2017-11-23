@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825010620) do
+ActiveRecord::Schema.define(version: 20171120123613) do
 
   create_table "bets", force: :cascade do |t|
     t.integer  "lottery_id"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20170825010620) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "turns", force: :cascade do |t|
+    t.string   "restaurant"
+    t.integer  "number"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
@@ -45,10 +53,7 @@ ActiveRecord::Schema.define(version: 20170825010620) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "name"
-    t.string   "username"
     t.string   "email"
-    t.integer  "score",                  default: 0,       null: false
     t.text     "tokens"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
