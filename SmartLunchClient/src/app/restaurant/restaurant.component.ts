@@ -22,13 +22,13 @@ export class RestaurantComponent implements OnInit {
     var turn = {restaurant: this.restaurant.name};
     this.Services.postTurn(turn).subscribe(
       res => {this.snackBar.open( 'Turno Generado', 'Close', {duration: 5000});
-              this.router.navigate( ["/turn"] );
+              this.router.navigate( [""] );
       },
       error =>{this.snackBar.open( 'No disponible', 'Close', {duration: 5000})}
     )
   }
   getImg() {
-    return '/assets/' + this.restaurant.img + '.jpg';
+    return '/assets/' + this.restaurant.name + '.jpg';
   }
 
 }

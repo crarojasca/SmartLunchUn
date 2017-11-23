@@ -18,14 +18,6 @@ export class TurnComponent implements OnInit {
     }
   }
 
-<<<<<<<
-  restaurant = localStorage.getItem('restaurant');
-  turn = parseInt(localStorage.getItem('turn'), 10) + 1;
-
-  constructor() { }
-=======
-
->>>>>>>
 
 
   constructor(private router: Router, private Services: SmartLunchApiService) {

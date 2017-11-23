@@ -38,7 +38,6 @@ export class SignComponent implements OnInit {
   };
 
   protected signUpUser = {
-    username: '',
     email: '',
     password: '',
     passwordConfirmation: ''
@@ -72,6 +71,7 @@ export class SignComponent implements OnInit {
           if ( res.status === 200 ) {
               localStorage.setItem('user', res.json().data['id']);
               localStorage.setItem('email', email);
+              this.dialogRef.close();
               this.router.navigate( [''] );
           }
         },
@@ -91,6 +91,7 @@ export class SignComponent implements OnInit {
           if ( res.status === 200 ) {
               localStorage.setItem('user', res.json().data['id']);
               localStorage.setItem('email', email);
+              this.dialogRef.close();
               this.router.navigate( [''] );
           }
         },

@@ -91,7 +91,7 @@ export class SmartLunchApiService {
     );
   }
 
-  signUp( signUpData: { username: string, email: string, password: string, passwordConfirmation: string } ): Observable<Response> {
+  signUp( signUpData: { email: string, password: string, passwordConfirmation: string } ): Observable<Response> {
     return this._tokenService.registerAccount( signUpData ).map(
         res => {
           var signInData = { email: signUpData.email, password: signUpData.password};

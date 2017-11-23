@@ -79,9 +79,12 @@ class TurnsController < ApplicationController
     def restauranInfo(restaurant)
       @turns = Turn.where(restaurant: restaurant)
       @turns = @turns.where("turns.user_id IS NOT NULL").count
+      @time  =  (@turns*30.000/10.000)
+      @time = ((@time/60).to_i).to_s + " : " + ((@time % 60).to_i).to_s
       return {
         :name => restaurant,
-        :queue => @turns
+        :queue => @turns,
+        :time => @time
       }
     end
 end
