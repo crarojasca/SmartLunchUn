@@ -1,50 +1,47 @@
-<mat-card class="card">
-  <mat-tab-group class="text-center ">
-
-    <mat-tab label="Sign In">
-      <div class="divSignIn">
-        <mat-form-field>
-            <input matInput #email placeholder="Correo" formControlName="email" type="email" required>
-        </mat-form-field ><br>
-        <mat-form-field >
-            <input matInput #password placeholder="Contraseña" type="password" ng-model="user.firstName"
-            formControlName="password" required>
-            <mat-hint *ngIf="invalidCredentials" [ngStyle]="{'color':'red'}" [@fadeInOut]>correo o contraseña inválido</mat-hint>
-            <mat-hint *ngIf="signInForm.controls['password'].hasError('minlength')" align="end"
-                [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
-              Ingresa mínimo 8 caracteres
-            </mat-hint>
-        </mat-form-field><br>
-        <div class="">
-          <button mat-fab color="primary" (click)="signIn(email.value, password.value)"><mat-icon class="icon material-icons mat-18">check</mat-icon></button>
-        </div>
+<mat-tab-group class="text-center" [selectedIndex]="selectedTab">
+  <mat-tab label="Iniciar Sesión">
+    <div class="divSignIn">
+      <mat-form-field>
+          <input matInput #email placeholder="Correo" formControlName="email" type="email" required>
+      </mat-form-field ><br>
+      <mat-form-field >
+          <input matInput #password placeholder="Contraseña" type="password" ng-model="user.firstName"
+          formControlName="password" required>
+          <mat-hint *ngIf="invalidCredentials" [ngStyle]="{'color':'red'}" [@fadeInOut]>correo o contraseña inválido</mat-hint>
+          <mat-hint *ngIf="signInForm.controls['password'].hasError('minlength')" align="end"
+              [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
+            Ingresa mínimo 8 caracteres
+          </mat-hint>
+      </mat-form-field><br>
+      <div class="">
+        <button mat-fab color="primary" (click)="signIn(email.value, password.value)"><mat-icon class="icon material-icons mat-18">check</mat-icon></button>
       </div>
+    </div>
+  </mat-tab>
 
-    </mat-tab>
-
-    <mat-tab label="Sign Up">
-      <div class="divSignIn">
-        <mat-input-container class="mat-block">
-            <input matInput #rEmail placeholder="Correo" formControlName="rEmail" type="rEmail" required>
-        </mat-input-container><br>
-        <mat-input-container class="mat-block">
-            <input matInput #rPassword placeholder="Contraseña" type="password" ng-model="user.firstName"
-            formControlName="rPassword" required>
-            <mat-hint *ngIf="signUpForm.controls['rPassword'].hasError('minlength')" align="end"
-                [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
-              Ingresa mínimo 8 caracteres
-            </mat-hint>
-            <mat-hint *ngIf="signUpForm.controls['rPassword'].hasError('maxlength')" align="end"
-                [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
-               Ingresa máximo 72 caracteres
-            </mat-hint>
-        </mat-input-container><br>
-        <div class="">
-          <button mat-fab color="primary" (click)="signUp(rEmail.value, rPassword.value)"><mat-icon class="icon material-icons mat-18">check</mat-icon></button>
-        </div>
+  <mat-tab label="Crear Cuenta">
+    <div class="divSignIn">
+      <mat-input-container class="mat-block">
+          <input matInput #rEmail placeholder="Correo" formControlName="rEmail" type="rEmail" required>
+      </mat-input-container><br>
+      <mat-input-container class="mat-block">
+          <input matInput #rPassword placeholder="Contraseña" type="password" ng-model="user.firstName"
+          formControlName="rPassword" required>
+          <mat-hint *ngIf="signUpForm.controls['rPassword'].hasError('minlength')" align="end"
+              [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
+            Ingresa mínimo 8 caracteres
+          </mat-hint>
+          <mat-hint *ngIf="signUpForm.controls['rPassword'].hasError('maxlength')" align="end"
+              [ngStyle]="{'color': '#B50000'}" [@fadeInOut]>
+              Ingresa máximo 72 caracteres
+          </mat-hint>
+      </mat-input-container><br>
+      <div class="">
+        <button mat-fab color="accent" (click)="signUp(rEmail.value, rPassword.value)"><mat-icon class="icon material-icons mat-18">check</mat-icon></button>
       </div>
+    </div>
 
 
-    </mat-tab>
-  </mat-tab-group>
-</mat-card>
+  </mat-tab>
+</mat-tab-group>
+

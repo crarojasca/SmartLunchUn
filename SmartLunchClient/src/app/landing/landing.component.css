@@ -1,8 +1,17 @@
-#Banner{
-  padding: 10px;
+#banner{
+  padding: 0;
 }
 
 #Sign{
   margin: auto;
   padding: 10px;
+}
+
+#welcome{
+  text-align: center;
+  margin-top: 5%;
+}
+
+#welcome-message{
+  margin: 15px;
 }

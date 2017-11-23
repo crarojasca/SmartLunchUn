@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -26,6 +27,7 @@ import { WallComponent } from './wall/wall.component';
 import { TurnComponent } from './turn/turn.component';
 
 import { AuthenticationService } from './guards/authentication.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export const appRoutes: Routes = [
   { path: 'login',
@@ -61,6 +63,8 @@ export const appRoutes: Routes = [
     TurnComponent
   ],
   imports: [
+    HttpModule,
+    BrowserModule,
     MatButtonModule,
     MatIconModule,
     NoopAnimationsModule,
@@ -70,12 +74,12 @@ export const appRoutes: Routes = [
     MatToolbarModule,
     MatInputModule,
     MatTabsModule,
-    BrowserModule,
-    HttpModule,
+    MatDialogModule,
     RouterModule.forRoot( appRoutes ),
   ],
   exports: [
   ],
+  entryComponents: [ SignComponent ],
   providers: [Angular2TokenService, AuthenticationService],
   bootstrap: [AppComponent]
 })

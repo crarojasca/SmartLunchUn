@@ -1,5 +1,11 @@
-<header id="Banner">
+<header id="banner">
   <app-banner></app-banner>
 </header>
 
-<app-sign  id="Sign"></app-sign>
+<div id="welcome">
+  <img src="/assets/sandwich.png" alt="">
+  <h1 id="welcome-message">Bienvenido a SmartLunchUN</h1>
+  <button mat-raised-button color="primary" (click)="openLogin()">Iniciar Sesión</button>
+  <button mat-raised-button color="accent" (click)="openSignUp()">Crear Cuenta</button>
+</div>
+
