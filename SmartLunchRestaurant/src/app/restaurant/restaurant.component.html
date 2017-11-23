@@ -1,6 +1,6 @@
 <div class="info">
   <h1 class="title">{{stName}}</h1>
-  <mat-icon style="font-size: 256px; width: 100%;" color="accent">face</mat-icon>
+  <mat-icon style="font-size: 256px; width: 100%;" [color]="color">face</mat-icon>
   <h3>Turno: {{turn}}</h3>
   <h3>Cliente: {{customer}}</h3>
   <button mat-raised-button color="primary" (click)="nextTurn()">Siguiente</button>  

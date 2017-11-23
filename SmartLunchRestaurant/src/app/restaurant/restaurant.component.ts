@@ -10,6 +10,7 @@ export class RestaurantComponent implements OnInit {
 
   name: string;
   stName: string;
+  color: string;
   turn: number;
   customer: string;
   students = ['Laura', 'Cristian', 'Felipe', 'Sandra', 'Pablo'];
@@ -60,6 +61,8 @@ export class RestaurantComponent implements OnInit {
 
     //conectar customer con base de datos
     this.customer = this.students[Math.floor(Math.random() * 5)];
+
+    this.color = 'accent';
   }
 
   nextTurn() {
@@ -68,6 +71,12 @@ export class RestaurantComponent implements OnInit {
 
     //conectar customer con base de datos
     this.customer = this.students[Math.floor(Math.random() * 5)];
+
+    if (this.color === 'accent') {
+      this.color = 'primary';
+    } else {
+      this.color = 'accent';
+    }
   }
 
 }
